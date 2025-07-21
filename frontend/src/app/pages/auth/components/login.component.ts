@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../../core/services/auth.service';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, NgForm} from '@angular/forms';
 
 @Component({
   selector: 'app-login',
+  standalone: true,
   imports: [FormsModule],
   styleUrls: ['./login.component.css'],
   templateUrl: './login.component.html',
@@ -14,16 +15,27 @@ export class LoginComponent  {
   email = '';
   password = '';
   errorMessage = '';
-  credentials = { email: '', password: '' };
 
   constructor(private authService: AuthService, private router: Router) {}
-  login() {
-    this.authService.login(this.credentials).subscribe({
+  login(form: NgForm) {
+    if (form.invalid) {
+      return;
+    }
+
+    console.log('Enviando credenciais:', { email: this.email, password: this.password });
+
+    const credentials = {
+      email: this.email,
+      password: this.password
+    };
+
+    this.authService.login(credentials).subscribe({
       next: result => {
         this.router.navigate(['/']);
+        console.log(result);
       },
       error: error => {
-        this.errorMessage = error;
+        this.errorMessage = 'Email ou senha inválidos.';
         console.log(error);
       }
     })

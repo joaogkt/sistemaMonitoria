@@ -12,7 +12,7 @@
       <p>Faça o login para continuar</p>
     </div>
 
-    <form class="login-form" (submit)="login()">
+    <form class="login-form"  #loginForm="ngForm" (ngSubmit)="login(loginForm)">
       <div class="input-group">
         <label for="email">Email</label>
         <input
