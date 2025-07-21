@@ -22,8 +22,6 @@ export class LoginComponent  {
       return;
     }
 
-    console.log('Enviando credenciais:', { email: this.email, password: this.password });
-
     const credentials = {
       email: this.email,
       password: this.password
