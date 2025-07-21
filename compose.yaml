@@ -1,9 +1,16 @@
-#services:
-#  db:
-#    image: postgres:15
-#    environment:
-#      POSTGRES_USER: user
-#      POSTGRES_PASSWORD: password
-#      POSTGRES_DB: monitoria_db
-#    ports:
-#      - "5432:5432"
+services:
+  postgres:
+    image: postgres:15
+    container_name: sistema_monitoria_postgres
+    restart: always
+    environment:
+      POSTGRES_USER: monitoria
+      POSTGRES_PASSWORD: monitoria
+      POSTGRES_DB: monitoria_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
