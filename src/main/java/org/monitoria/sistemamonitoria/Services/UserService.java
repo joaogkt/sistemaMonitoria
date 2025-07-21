@@ -1,5 +1,6 @@
 package org.monitoria.sistemamonitoria.Services;
 
+import org.monitoria.sistemamonitoria.DTO.UserDTO;
 import org.monitoria.sistemamonitoria.Models.User;
 import org.monitoria.sistemamonitoria.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,10 +18,13 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
-    public User registerUser(User user) {
-        if (userRepository.existsByEmail(user.getEmail())) {
-            throw new IllegalArgumentException("Email already exists");
-        }
+    //Atualizar para mandar senha criptografada
+    public User registerUser(UserDTO dto) {
+        User user = new User();
+        user.setEmail(dto.getEmail());
+        user.setPassword(dto.getPassword());
+        user.setName(dto.getName());
+        user.setRole(dto.getRole());
         return userRepository.save(user);
     }
 
@@ -36,12 +40,14 @@ public class UserService {
     }
 
     //Atualizar para mandar senha criptografada
-    public User updateUser(Long id, User userUpdate) {
-        User existingUser = userRepository.findById(id).orElseThrow(() -> new RuntimeException("User not found"));
-        existingUser.setName(userUpdate.getName());
-        existingUser.setEmail(userUpdate.getEmail());
-        existingUser.setPassword(userUpdate.getPassword());
-        return userRepository.save(existingUser);
+    public User updateUser(Long id, UserDTO dto) {
+        User user = userRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("User not found"));
+        user.setEmail(dto.getEmail());
+        user.setPassword(dto.getPassword());
+        user.setName(dto.getName());
+        user.setRole(dto.getRole());
+        return userRepository.save(user);
     }
 
 }
