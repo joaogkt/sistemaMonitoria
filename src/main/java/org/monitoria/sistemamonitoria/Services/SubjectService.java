@@ -14,16 +14,28 @@ public class SubjectService {
     @Autowired
     private SubjectRepository subjectRepository;
 
-    public List<Subject> findAll(){
+    public List<Subject> findAll() {
         return subjectRepository.findAll();
-    };
-    public Optional<Subject> findById(long id){
+    }
+
+    public Optional<Subject> findById(long id) {
         return subjectRepository.findById(id);
     }
-    public Subject save(SubjectDTO dto){
+
+    public Subject save(SubjectDTO dto) {
         Subject subject = new Subject();
         subject.setName(dto.getName());
         return subjectRepository.save(subject);
     }
 
+    public void delete(Long id) {
+        subjectRepository.deleteById(id);
+    }
+
+    public Subject update(Long id, SubjectDTO dto) {
+        Subject subject = subjectRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Subject not found"));
+        subject.setName(dto.getName());
+        return subjectRepository.save(subject);
+    }
 }
