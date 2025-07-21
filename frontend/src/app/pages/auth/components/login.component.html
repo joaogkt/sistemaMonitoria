@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+</head>
+<body>
+<div class="login-container">
+  <div class="login-card">
+    <div class="login-header">
+      <h2>Seja Bem-Vindo!</h2>
+      <p>Faça o login para continuar</p>
+    </div>
+
+    <form class="login-form" (submit)="login()">
+      <div class="input-group">
+        <label for="email">Email</label>
+        <input
+          id="email"
+          type="email"
+          [(ngModel)]="email"
+          name="email"
+          placeholder="seuemail@exemplo.com"
+          required
+        />
+      </div>
+
+      <div class="input-group">
+        <label for="password">Senha</label>
+        <input
+          id="password"
+          type="password"
+          [(ngModel)]="password"
+          name="password"
+          placeholder="Sua senha"
+          required
+        />
+      </div>
+
+      <button type="submit" class="login-button">Entrar</button>
+
+      @if (errorMessage) {
+        <div class="error-message">
+          {{ errorMessage }}
+        </div>
+      }
+    </form>
+  </div>
+</div>
+</body>
+</html>

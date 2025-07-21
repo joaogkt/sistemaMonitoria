@@ -1,31 +1,13 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from '../services/auth.service';
+import { AuthService } from '../../../core/services/auth.service';
 import {FormsModule} from '@angular/forms';
 
 @Component({
   selector: 'app-login',
-  // templateUrl: './login.component.html',
   imports: [FormsModule],
-  template: `
-    <h2>Login</h2>
-    <form (submit)="login()">
-      <label>
-        Email:
-<input type="email" [(ngModel)]="email" name="email" required />
-</label>
-<br />
-<label>
-  Senha:
-<input type="password" [(ngModel)]="password" name="password" required />
-</label>
-<br />
-<button type="submit">Entrar</button>
-</form>
-    @if (errorMessage) {
-      <p style="color: red">{{ errorMessage }}</p>
-    }
-  `,
+  styleUrls: ['./login.component.css'],
+  templateUrl: './login.component.html',
 })
 
 export class LoginComponent  {
