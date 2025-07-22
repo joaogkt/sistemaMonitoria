@@ -13,6 +13,10 @@ export class AuthService {
     return this.http.post<{ token: string }>(`${environment.apiUrl}/auth/login`, credentials);
   }
 
+  register(credentials: { name:string, email: string, password: string, role: string }) {
+    return this.http.post(`${environment.apiUrl}/users`, credentials);
+  }
+
   saveToken(token: string) {
     localStorage.setItem(this.tokenKey, token);
   }

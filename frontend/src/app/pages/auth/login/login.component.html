@@ -1,0 +1,48 @@
+<div class="login-container">
+  <div class="login-card">
+    <div class="login-image">
+      <img class="imagem" src="https://t4.ftcdn.net/jpg/04/28/75/97/360_F_428759715_jsOPITlaytE3QXc2yI1D4U6uwZdVGkRp.jpg">
+    </div>
+
+    <form class="login-form" #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+      <div class="login-header">
+        <h2>Bem-vindo ao Sistema de Monitoria</h2>
+        <p>Insira seu email e senha para acessar o painel</p>
+      </div>
+
+      <div class="input-group">
+        <label for="email">Email</label>
+        <input
+          id="email"
+          type="email"
+          name="email"
+          [(ngModel)]="email"
+          required
+          placeholder="seuemail@exemplo.com"
+        />
+      </div>
+
+      <div class="input-group">
+        <label for="password">Senha</label>
+        <input
+          id="password"
+          type="password"
+          name="password"
+          [(ngModel)]="password"
+          required
+          placeholder="••••••••"
+        />
+      </div>
+
+      <button type="submit" class="login-button">Entrar</button>
+
+      <a href="register" class="link-register">Não tem conta? Clique aqui para se registrar</a>
+
+      @if (errorMessage) {
+        <div class="error-message">
+          {{ errorMessage }}
+        </div>
+      }
+    </form>
+  </div>
+</div>

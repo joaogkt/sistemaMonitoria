@@ -29,8 +29,8 @@ export class LoginComponent  {
 
     this.authService.login(credentials).subscribe({
       next: result => {
-        this.router.navigate(['/']);
-        console.log(result);
+        this.authService.saveToken(result.token);
+        this.router.navigate(['home']);
       },
       error: error => {
         this.errorMessage = 'Email ou senha inválidos.';

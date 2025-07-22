@@ -2,17 +2,28 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Login</title>
+  <title>Registre-se</title>
 </head>
 <body>
 <div class="login-container">
   <div class="login-card">
     <div class="login-header">
       <h2>Seja Bem-Vindo!</h2>
-      <p>Faça o login para continuar</p>
+      <p>Crie sua conta para continuar</p>
     </div>
 
-    <form class="login-form"  #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+    <form class="registerForm"  #registerForm="ngForm" (ngSubmit)="register(registerForm)">
+      <div class="input-group">
+        <label for="text">Nome</label>
+        <input
+          id="text"
+          type="text"
+          [(ngModel)]="name"
+          name="name"
+          placeholder="Joao da Silva"
+          required
+        />
+      </div>
       <div class="input-group">
         <label for="email">Email</label>
         <input
@@ -36,6 +47,28 @@
           required
         />
       </div>
+      <fieldset>
+      <legend>Escolha o seu perfil no sistema:</legend>
+      <div class="radio-select">
+        <label for="teacher">Professor</label>
+        <input
+          id="teacher"
+          type="radio"
+          [(ngModel)]="role"
+          name="teacher"
+          value="teacher"
+
+        />
+        <label for="student">Aluno</label>
+        <input
+          id="student"
+          type="radio"
+          [(ngModel)]="role"
+          name="student"
+          value="student"
+        />
+      </div>
+        </fieldset>
 
       <button type="submit" class="login-button">Entrar</button>
 
