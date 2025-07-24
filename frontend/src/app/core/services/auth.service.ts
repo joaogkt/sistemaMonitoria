@@ -25,6 +25,11 @@ export class AuthService {
     return localStorage.getItem(this.tokenKey);
   }
 
+  decodeToken(token: string): any {
+    return jwtDecode(token);
+  }
+
+
   isAuthenticated(): boolean {
     const token = this.getToken();
     if (!token) return false;
@@ -35,4 +40,5 @@ export class AuthService {
   logout() {
     localStorage.removeItem(this.tokenKey);
   }
+
 }

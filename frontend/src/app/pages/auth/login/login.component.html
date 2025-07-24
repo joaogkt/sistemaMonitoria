@@ -4,6 +4,9 @@
       <img class="imagem" src="https://t4.ftcdn.net/jpg/04/28/75/97/360_F_428759715_jsOPITlaytE3QXc2yI1D4U6uwZdVGkRp.jpg">
     </div>
 
+
+
+
     <form class="login-form" #loginForm="ngForm" (ngSubmit)="login(loginForm)">
       <div class="login-header">
         <h2>Bem-vindo ao Sistema de Monitoria</h2>
@@ -41,6 +44,12 @@
       @if (errorMessage) {
         <div class="error-message">
           {{ errorMessage }}
+        </div>
+      }
+
+      @if (successMessage) {
+        <div class="success-message">
+          {{ successMessage }}
         </div>
       }
     </form>

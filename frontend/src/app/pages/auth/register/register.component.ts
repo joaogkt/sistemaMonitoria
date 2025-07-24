@@ -42,7 +42,7 @@ export class RegisterComponent  {
 
     this.authService.register(credentials).subscribe({
       next: result => {
-        this.router.navigate(['login']);
+        this.router.navigate(['login'], { queryParams: { registered: 'true' } });
         console.log(result);
       },
       error: error => {

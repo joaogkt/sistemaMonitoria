@@ -1,38 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Registre-se</title>
-</head>
-<body>
 <div class="login-container">
   <div class="login-card">
-    <div class="login-header">
-      <h2>Seja Bem-Vindo!</h2>
-      <p>Crie sua conta para continuar</p>
+    <div class="login-image">
+      <img class="imagem" src="https://t4.ftcdn.net/jpg/04/28/75/97/360_F_428759715_jsOPITlaytE3QXc2yI1D4U6uwZdVGkRp.jpg">
     </div>
 
-    <form class="registerForm"  #registerForm="ngForm" (ngSubmit)="register(registerForm)">
+    <form class="login-form" #registerForm="ngForm" (ngSubmit)="register(registerForm)">
+      <div class="login-header">
+        <h2>Seja Bem-Vindo!</h2>
+        <p>Crie sua conta para continuar</p>
+      </div>
+
       <div class="input-group">
-        <label for="text">Nome</label>
+        <label for="name">Nome</label>
         <input
-          id="text"
+          id="name"
           type="text"
-          [(ngModel)]="name"
           name="name"
-          placeholder="Joao da Silva"
+          [(ngModel)]="name"
           required
+          placeholder="João da Silva"
         />
       </div>
+
       <div class="input-group">
         <label for="email">Email</label>
         <input
           id="email"
           type="email"
-          [(ngModel)]="email"
           name="email"
-          placeholder="seuemail@exemplo.com"
+          [(ngModel)]="email"
           required
+          placeholder="seuemail@exemplo.com"
         />
       </div>
 
@@ -41,36 +39,42 @@
         <input
           id="password"
           type="password"
-          [(ngModel)]="password"
           name="password"
-          placeholder="Sua senha"
+          [(ngModel)]="password"
           required
+          placeholder="••••••••"
         />
       </div>
-      <fieldset>
-      <legend>Escolha o seu perfil no sistema:</legend>
-      <div class="radio-select">
-        <label for="teacher">Professor</label>
-        <input
-          id="teacher"
-          type="radio"
-          [(ngModel)]="role"
-          name="teacher"
-          value="teacher"
 
-        />
-        <label for="student">Aluno</label>
-        <input
-          id="student"
-          type="radio"
-          [(ngModel)]="role"
-          name="student"
-          value="student"
-        />
-      </div>
-        </fieldset>
+      <fieldset class="input-group">
+        <legend>Escolha seu perfil:</legend>
+        <div class="radio-select">
+          <label>
+            <input
+              type="radio"
+              name="role"
+              [(ngModel)]="role"
+              value="teacher"
+              required
+            />
+            Professor
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="role"
+              [(ngModel)]="role"
+              value="student"
+              required
+            />
+            Aluno
+          </label>
+        </div>
+      </fieldset>
 
-      <button type="submit" class="login-button">Entrar</button>
+      <button type="submit" class="login-button">Registrar</button>
+
+      <a href="login" class="link-register">Já tem conta? Clique aqui para entrar</a>
 
       @if (errorMessage) {
         <div class="error-message">
@@ -80,5 +84,3 @@
     </form>
   </div>
 </div>
-</body>
-</html>

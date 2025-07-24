@@ -5,6 +5,70 @@
   <title>Home Page</title>
 </head>
 <body>
-<h1>Essa é a home page do sistema de monitoria</h1>
+<app-navbar></app-navbar>
+
+<div class="home-container">
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Bem-vindo ao Sistema de Monitoria</h1>
+      <p class="user-role">Perfil: {{ userRole }}</p>
+      <p>Encontre, cadastre e gerencie monitorias com facilidade e eficiência.</p>
+      <a routerLink="/cadastrar-monitoria" class="hero-button">Cadastrar Nova Monitoria</a>
+    </div>
+    <div class="hero-image">
+      <img src="https://thumbs.dreamstime.com/b/accessibility-solutions-spet-designing-technology-inclusive-education-shown-modifying-devices-features-surrounded-373240690.jpg" alt="Estudantes" />
+    </div>
+  </section>
+
+  <section class="quick-actions">
+    <h2>Acesso Rápido</h2>
+    <div class="actions-grid">
+      <a routerLink="/minhas-monitorias" class="action-card">
+        <h3>Minhas Monitorias</h3>
+        <p>Acompanhe todas as monitorias que você cadastrou.</p>
+      </a>
+      <a routerLink="/monitorias" class="action-card">
+        <h3>Explorar Monitorias</h3>
+        <p>Veja monitorias disponíveis e encontre ajuda.</p>
+      </a>
+    </div>
+  </section>
+
+  <section class="latest-monitorias">
+    <h2>Últimas Monitorias</h2>
+    <div class="monitoria-grid">
+      <div class="monitoria-card">
+        <h3>Lógica de Programação</h3>
+        <p>Professor João - Segundas e Quartas às 10h</p>
+      </div>
+      <div class="monitoria-card">
+        <h3>Estrutura de Dados</h3>
+        <p>Profª Maria - Terças às 14h</p>
+      </div>
+      <div class="monitoria-card">
+        <h3>Banco de Dados</h3>
+        <p>Prof. Carlos - Sextas às 9h</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="anuncios">
+    <h2>Comunicados</h2>
+    <div class="anuncio-card">
+      <p><strong>⚠️ Feriado:</strong> Não haverá monitorias nos dias 7 e 8 de setembro.</p>
+    </div>
+    <div class="anuncio-card">
+      <p><strong>📢 Atualização:</strong> Novo módulo de cadastro de feedback disponível!</p>
+    </div>
+  </section>
+</div>
+
+<footer class="footer">
+  <div class="footer-content">
+    <p>&copy; 2025 Sistema de Monitoria</p>
+    <p>Email: suporte&#64;monitoria.edu.br | Telefone: (61) 99999-9999</p>
+  </div>
+</footer>
+
 </body>
 </html>

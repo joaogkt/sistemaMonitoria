@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 import { AuthService } from '../../../core/services/auth.service';
 import {FormsModule, NgForm} from '@angular/forms';
 
@@ -11,12 +11,21 @@ import {FormsModule, NgForm} from '@angular/forms';
   templateUrl: './login.component.html',
 })
 
-export class LoginComponent  {
+export class LoginComponent implements OnInit  {
   email = '';
   password = '';
   errorMessage = '';
+  successMessage = '';
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(private authService: AuthService, private router: Router, private route: ActivatedRoute) {}
+
+  ngOnInit() {
+    this.route.queryParams.subscribe(params => {
+      if (params['registered'] === 'true') {
+        this.successMessage = 'Registro feito com sucesso';
+      }
+    })
+  }
   login(form: NgForm) {
     if (form.invalid) {
       return;

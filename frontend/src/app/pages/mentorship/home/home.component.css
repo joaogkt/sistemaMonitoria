@@ -1,0 +1,147 @@
+.home-container {
+  padding: 100px 40px 40px;
+  font-family: 'Poppins', sans-serif;
+  color: #2c3e50;
+}
+
+.hero {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 60px;
+}
+
+.hero-text {
+  flex: 1 1 50%;
+}
+
+.user-role {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #555;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  font-style: italic;
+}
+
+
+.hero-text h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.hero-text p {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  color: #555;
+}
+
+.hero-button {
+  display: inline-block;
+  background-color: #667eea;
+  color: white;
+  padding: 12px 24px;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background-color 0.3s;
+  font-weight: 600;
+}
+
+.hero-button:hover {
+  background-color: #5a67d8;
+}
+.hero-image {
+  flex: 1 1 45%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 300px;
+}
+
+
+.hero-image img {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+
+.quick-actions {
+  margin-top: 40px;
+}
+
+.quick-actions h2 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+
+.actions-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.action-card {
+  background-color: #f4f4f4;
+  border-radius: 12px;
+  padding: 20px;
+  text-decoration: none;
+  color: #2c3e50;
+  flex: 1 1 300px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease;
+}
+
+.action-card:hover {
+  transform: translateY(-4px);
+  background-color: #e2e8f0;
+}
+
+.monitoria-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+.monitoria-card {
+  background-color: #f4f4f4;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s;
+}
+
+.monitoria-card:hover {
+  transform: scale(1.02);
+}
+
+
+.anuncio-card {
+  background-color: #fff8dc;
+  padding: 1rem;
+  border-left: 6px solid #ffc107;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+
+
+.footer {
+  margin-top: 4rem;
+  background-color: #2d3748;
+  color: white;
+  padding: 1.5rem 2rem;
+  text-align: center;
+}
+
+.footer p {
+  margin: 0.3rem 0;
+}
