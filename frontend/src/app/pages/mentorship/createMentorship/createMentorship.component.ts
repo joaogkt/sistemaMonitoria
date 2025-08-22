@@ -28,7 +28,7 @@ export class CreateMentorshipComponent implements OnInit {
     subject: '',
     type: '',
     contactLink: '',
-    created_by: '',
+    createdById: '',
   };
   ngOnInit() {
     const token = this.authService.getToken();
@@ -39,13 +39,13 @@ export class CreateMentorshipComponent implements OnInit {
         return;
       }
       console.log(payload);
-      this.mentorship.created_by = payload.name || 'Anonymous';
+      this.mentorship.createdById = payload.id;
       this.userRole = payload.role || 'Usuário';
     }
   }
   createMentorship()
   {
-
+    console.log("MMM", this.mentorship);
     this.mentorshipService.createMentorship(this.mentorship).subscribe({
       next: () => {
         alert('Monitoria criada com sucesso!');

@@ -8,7 +8,7 @@ export interface MentorshipDTO {
   title: string;
   description: string;
   subject: string;
-  created_by: string;
+  createdById: string;
   type: string;
   contactLink: string;
 }

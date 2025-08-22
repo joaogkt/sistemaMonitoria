@@ -71,6 +71,7 @@ public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Excepti
             .sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
             .authorizeHttpRequests(auth -> auth
                     .requestMatchers("/api/auth/login").permitAll()
+                    //Bloquear rota
                     .requestMatchers("/api/users/**").permitAll()
                     .anyRequest().authenticated()
             )
