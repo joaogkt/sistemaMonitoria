@@ -14,8 +14,8 @@ Sistema de monitoria acadêmica com **front-end em Angular** e **back-end em Spr
 ## 🔹 Funcionalidades
 
 - Autenticação JWT
-- CRUD de monitorias (Admin / Teacher / Student)
-- Controle de acesso por roles
+- CRUD de monitorias 
+- Controle de acesso por roles (Admin / Teacher / Student)
 - Preenchimento automático do criador da monitoria a partir do token JWT
 - Validação de dados no back-end com DTOs
 - Listagem e detalhamento de monitorias
