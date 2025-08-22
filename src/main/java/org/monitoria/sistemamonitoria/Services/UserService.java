@@ -21,7 +21,6 @@ public class UserService {
         this.passwordEncoder = passwordEncoder;
     }
 
-    //Atualizar para mandar senha criptografada
     public User registerUser(UserDTO dto) {
         User user = new User();
         user.setEmail(dto.getEmail());

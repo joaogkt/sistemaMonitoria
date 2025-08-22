@@ -21,6 +21,9 @@ public class Mentorship {
     @Column(length = 1000)
     private String description;
 
+    @Column(nullable = false)
+    private String subject;
+
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private MentorshipType type;
@@ -31,10 +34,6 @@ public class Mentorship {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "created_by_id", nullable = false)
     private User createdBy;
-
-    @ManyToOne
-    @JoinColumn(name = "subject_id", nullable = false)
-    private Subject subject;
 
     @Column(nullable = false)
     private LocalDateTime createdAt = LocalDateTime.now();

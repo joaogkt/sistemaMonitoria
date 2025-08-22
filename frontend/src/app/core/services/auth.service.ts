@@ -29,6 +29,9 @@ export class AuthService {
     return jwtDecode(token);
   }
 
+  hasAccess(role: string): boolean {
+    return ['TEACHER', 'ADMIN'].includes(role);
+  }
 
   isAuthenticated(): boolean {
     const token = this.getToken();

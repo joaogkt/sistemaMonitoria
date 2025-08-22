@@ -20,9 +20,6 @@ export class HomeComponent {
     if (token) {
       const payload: any = this.authService.decodeToken(token);
       this.userRole = payload.role || 'Usuário';
-      console.log(this.userRole);
-      console.log(payload);
-      console.log(payload.role);
     }
   }
 }

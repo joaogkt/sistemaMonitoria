@@ -4,11 +4,13 @@ import {RegisterComponent} from './pages/auth/register/register.component';
 import {HomeComponent} from './pages/mentorship/home/home.component';
 import { AuthGuard } from './core/guard/auth.guard';
 import LogoutComponent from './pages/auth/logout/logout.component';
+import {CreateMentorshipComponent} from './pages/mentorship/createMentorship/createMentorship.component';
 
 export const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'register', component: RegisterComponent },
   { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
-  { path: 'logout', component: LogoutComponent, canActivate: [AuthGuard] }
+  { path: 'logout', component: LogoutComponent, canActivate: [AuthGuard] },
+  { path: 'createMentorship', component: CreateMentorshipComponent, canActivate: [AuthGuard] }
 ];

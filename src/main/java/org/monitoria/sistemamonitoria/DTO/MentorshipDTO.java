@@ -15,6 +15,9 @@ public class MentorshipDTO {
 
     private String description;
 
+    @NotNull(message = "Nome da matéria é obrigatório")
+    private String subject;
+
     @NotNull(message = "Tipo de mentoria é obrigatório")
     private MentorshipType type;
 
@@ -24,7 +27,6 @@ public class MentorshipDTO {
     @NotNull(message = "ID do criador é obrigatório")
     private Long createdById;
 
-    @NotNull(message = "ID da matéria é obrigatório")
-    private Long subjectId;
+
 
 }

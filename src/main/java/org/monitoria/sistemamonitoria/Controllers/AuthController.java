@@ -3,6 +3,8 @@ package org.monitoria.sistemamonitoria.Controllers;
 import org.monitoria.sistemamonitoria.Auth.JwtUtil;
 import org.monitoria.sistemamonitoria.DTO.LoginRequestDTO;
 import org.monitoria.sistemamonitoria.DTO.LoginResponseDTO;
+import org.monitoria.sistemamonitoria.Models.User;
+import org.monitoria.sistemamonitoria.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -21,6 +23,8 @@ public class AuthController {
 
     @Autowired
     private JwtUtil jwtUtil;
+    @Autowired
+    private UserRepository userRepository;
 
     @PostMapping("/login")
     public ResponseEntity<LoginResponseDTO> login(@RequestBody LoginRequestDTO request) {
@@ -29,7 +33,10 @@ public class AuthController {
 
         authManager.authenticate(authInputToken);
 
-        String token = jwtUtil.generateToken(request.getEmail());
+        User user = userRepository.findByEmail(request.getEmail())
+                .orElseThrow(() -> new RuntimeException("User not found"));
+
+        String token = jwtUtil.generateToken(user.getEmail(), user.getRole(), user.getName());
         return ResponseEntity.ok(new LoginResponseDTO(token));
     }
 }

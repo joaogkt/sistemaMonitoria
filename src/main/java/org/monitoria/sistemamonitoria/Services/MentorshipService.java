@@ -2,10 +2,9 @@ package org.monitoria.sistemamonitoria.Services;
 
 import org.monitoria.sistemamonitoria.DTO.MentorshipDTO;
 import org.monitoria.sistemamonitoria.Models.Mentorship;
-import org.monitoria.sistemamonitoria.Models.Subject;
 import org.monitoria.sistemamonitoria.Models.User;
 import org.monitoria.sistemamonitoria.Repository.MentorshipRepository;
-import org.monitoria.sistemamonitoria.Repository.SubjectRepository;
+import org.monitoria.sistemamonitoria.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,7 +18,7 @@ public class MentorshipService {
     private MentorshipRepository mentorshipRepository;
 
     @Autowired
-    private SubjectRepository subjectRepository;
+    private UserRepository userRepository;
 
     public List<Mentorship> findAll() {
         return mentorshipRepository.findAll();
@@ -35,9 +34,10 @@ public class MentorshipService {
         mentorship.setDescription(dto.getDescription());
         mentorship.setType(dto.getType());
         mentorship.setContactLink(dto.getContactLink());
-        Subject subject = subjectRepository.findById(dto.getSubjectId())
-                .orElseThrow(() -> new RuntimeException("Subject not found"));
-        mentorship.setSubject(subject);
+        mentorship.setSubject(dto.getSubject());
+        User user = userRepository.findById(dto.getCreatedById())
+                .orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
+        mentorship.setCreatedBy(user);
         return mentorshipRepository.save(mentorship);
     }
 
@@ -48,9 +48,10 @@ public class MentorshipService {
         mentorship.setDescription(dto.getDescription());
         mentorship.setType(dto.getType());
         mentorship.setContactLink(dto.getContactLink());
-        Subject subject = subjectRepository.findById(dto.getSubjectId())
-                .orElseThrow(() -> new RuntimeException("Subject not found"));
-        mentorship.setSubject(subject);
+        mentorship.setSubject(dto.getSubject());
+        User user = userRepository.findById(dto.getCreatedById())
+                .orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
+        mentorship.setCreatedBy(user);
         return mentorshipRepository.save(mentorship);
     }
 
