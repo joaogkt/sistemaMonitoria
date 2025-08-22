@@ -100,12 +100,8 @@ Usuários com a `role` de **ADMIN** têm permissões extras para criar e editar 
 | `POST` | `/api/mentorships` | Cria uma nova monitoria |
 | `PUT` | `/api/mentorships/{id}` | Atualiza monitoria existente |
 | `DELETE` | `/api/mentorships/{id}` | Remove monitoria |
-
---- 
-
 | `POST` | `/api/auth/login` | Autentica usuario |
 | `POST` | `/api/user` | Cria usuario |
-
 
 ---
 
