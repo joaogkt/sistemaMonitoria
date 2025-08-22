@@ -42,7 +42,7 @@ Sistema de monitoria acadêmica com **front-end em Angular** e **back-end em Spr
 
     ```bash
     git clone <url-do-repositorio>
-    cd sistemaMonitoria/backend
+    cd sistemaMonitoria
     ```
 
 2.  Configure o banco de dados PostgreSQL no `application.properties`:
@@ -100,8 +100,17 @@ Usuários com a `role` de **ADMIN** têm permissões extras para criar e editar 
 | `POST` | `/api/mentorships` | Cria uma nova monitoria |
 | `PUT` | `/api/mentorships/{id}` | Atualiza monitoria existente |
 | `DELETE` | `/api/mentorships/{id}` | Remove monitoria |
+| `GET` | `/api/enrollments` | Lista todas as inscrições |
+| `GET` | `/api/enrollments/{id}` | Busca inscrições por ID |
+| `POST` | `/api/enrollments` | Cria uma nova inscrição |
+| `PUT` | `/api/enrollments/{id}` | Atualiza inscrição existente |
+| `DELETE` | `/api/enrollments/{id}` | Remove inscrição |
 | `POST` | `/api/auth/login` | Autentica usuario |
 | `POST` | `/api/user` | Cria usuario |
+| `GET` | `/api/users` | Lista todos os usuario |
+| `GET` | `/api/users/{id}` | Busca usuario por ID |
+| `PUT` | `/api/users/{id}` | Atualiza usuario existente |
+| `DELETE` | `/api/users/{id}` | Remove usuario |
 
 ---
 
